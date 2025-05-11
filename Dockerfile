@@ -9,6 +9,7 @@ COPY package*.json ./
 USER root
 
 RUN npm install
+RUN apk add --no-cache curl
 
 COPY --chown=node:node . .
 
